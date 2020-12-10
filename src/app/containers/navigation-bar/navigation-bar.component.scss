@@ -1,0 +1,12 @@
+@import "src/assets/variables";
+
+.navigation-bar{
+  background-color: $purple;
+  .hello-user{
+    align-self: center;
+    right: 0;
+    position: absolute;
+    color: white;
+    margin-right: 10px;
+  }
+}

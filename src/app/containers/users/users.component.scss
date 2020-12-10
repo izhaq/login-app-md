@@ -1,0 +1,12 @@
+@import "src/assets/variables";
+
+:host{
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  .section-header{
+    color: $purple;
+    font-size: 20px;
+    font-weight: 500;
+  }
+}

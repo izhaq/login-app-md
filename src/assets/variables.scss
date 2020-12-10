@@ -1,0 +1,21 @@
+$shadow-floating:  0 2px 16px 0 rgba(64,64,64,0.16);
+$grey: #e6e6e6;
+$purple: #5611b0;
+$light-purple: #6811d9;
+$super-light-purple: #f5f0fc;
+$b75: #404040;
+
+$grid-breakpoints: (
+  xs: 0, // handset portrait (small, medium, large) | handset landscape (small)
+  sm: 600px, // handset landscape (medium, large) | tablet portrait(small, large)
+  md: 960px, //  tablet landscape (small, large)
+  lg: 1280px, // laptops and desktops
+  xl: 1600px // large desktops
+);
+
+$container-max-widths: (
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1600px
+);

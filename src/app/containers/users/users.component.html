@@ -1,0 +1,6 @@
+<app-section>
+  <div class="section-header" header>
+    Users
+  </div>
+  <app-table [config]="config | async" (rowSelected)="onUserSelect($event)" body></app-table>
+</app-section>

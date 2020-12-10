@@ -1,0 +1,12 @@
+<div *ngIf="config &&  config.data && config.data.length > 0" class="data-table">
+  <div class="data-row table-header">
+    <div *ngFor="let col of config.columns" class="data-cell">
+      <div>{{col.label}}</div>
+    </div>
+  </div>
+  <div *ngFor="let row of config.data" class="data-row" (click)="onRowSelected(row)">
+    <div *ngFor="let col of config.columns" class="data-cell">
+      <div>{{row[col.key]}}</div>
+    </div>
+  </div>
+</div>

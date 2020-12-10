@@ -1,0 +1,32 @@
+<app-section>
+  <div class="section-header" header>
+    User Profile - {{(selectedUser | async)!.firstName.toUpperCase()}}
+  </div>
+  <div body *ngIf="(selectedUser | async) as user">
+    <div class="details-container">
+      <fa-icon icon="user" size="10x"></fa-icon>
+      <div class="details">
+        <div class="detail-item">
+          <div class="lbl">First Name</div>
+          <div class="value">{{user.firstName}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="lbl">Last Name</div>
+          <div class="value">{{user.lastName}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="lbl">Email</div>
+          <div class="value">{{user.email}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="lbl">Age</div>
+          <div class="value">{{user.age}}</div>
+        </div>
+        <div class="detail-item">
+          <div class="lbl">Id</div>
+          <div class="value">{{user.id}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</app-section>

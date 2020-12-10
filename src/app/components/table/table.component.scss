@@ -1,0 +1,25 @@
+@import "src/assets/variables";
+
+:host {
+  .data-table {
+    display: flex;
+    flex-direction: column;
+    .table-header{
+      color: $purple;
+      font-size: 17px;
+      font-weight: 400;
+    }
+    .data-row{
+      display: flex;
+      padding: 15px;
+      &:hover:not(.table-header){
+        background: $super-light-purple;
+        outline: none;
+        cursor: pointer;
+      }
+      .data-cell{
+        flex: 1;
+      }
+    }
+  }
+}

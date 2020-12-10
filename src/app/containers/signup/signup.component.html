@@ -1,0 +1,44 @@
+<div class="signup-container">
+  <div class="signup-header">Signup</div>
+  <form class="signup-form" novalidate  (ngSubmit)="onSubmit(signup)" [formGroup]="signup">
+    <div class="form-field">
+      <label for="firstName-field" class="form-label">First name</label>
+      <input type="firstName" class="form-control" id="firstName-field" formControlName="firstName">
+      <ng-container *ngIf="showError('firstName')">
+        <span class="invalid-feedback failed">{{getValidationMessage('firstName')}}</span>
+      </ng-container>
+    </div>
+    <div class="form-field">
+      <label for="lastName" class="form-label">Last name</label>
+      <input type="lastName" class="form-control" id="lastName" formControlName="lastName">
+      <ng-container *ngIf="showError('lastName')">
+        <span class="invalid-feedback failed">{{getValidationMessage('lastName')}}</span>
+      </ng-container>
+    </div>
+    <div class="form-field">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
+      <ng-container *ngIf="showError('email')">
+        <span class="invalid-feedback failed">{{getValidationMessage('email')}}</span>
+      </ng-container>
+    </div>
+    <div class="form-field">
+      <label for="age" class="form-label">Age</label>
+      <input type="age" class="form-control" id="age" formControlName="age">
+      <ng-container *ngIf="showError('age')">
+        <span class="invalid-feedback failed">{{getValidationMessage('age')}}</span>
+      </ng-container>
+    </div>
+    <div class="form-field">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" formControlName="password">
+      <ng-container *ngIf="showError('password')">
+        <span class="invalid-feedback failed">{{getValidationMessage('password')}}</span>
+      </ng-container>
+    </div>
+    <button type="submit" class="btn submit-btn-form">Signup</button>
+  </form>
+  <div class="additional-actions">
+    <a class="nav-item nav-link-signup" routerLink="/login" routerLinkActive="active">Already a member ? Login</a>
+  </div>
+</div>

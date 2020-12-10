@@ -1,0 +1,6 @@
+<div class="section-container" [ngClass]="{'limited': limitedWidth}" >
+  <div class="section-title">
+    <ng-content select="[header]"></ng-content>
+  </div>
+  <ng-content select="[body]"></ng-content>
+</div>

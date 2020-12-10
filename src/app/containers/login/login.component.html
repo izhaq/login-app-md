@@ -1,0 +1,24 @@
+<div class="login-container">
+  <div class="login-header">Login</div>
+  <form class="form-login" novalidate  (ngSubmit)="onSubmit(login)" [formGroup]="login">
+    <div class="form-field">
+      <label for="email-field" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email-field" formControlName="email" aria-describedby="emailHelp">
+      <ng-container *ngIf="showError('email')">
+        <span class="invalid-feedback failed">{{getValidationMessage('email')}}</span>
+      </ng-container>
+    </div>
+    <div class="form-field">
+      <label for="password-field" class="form-label">Password</label>
+      <input type="password" class="form-control" formControlName="password" id="password-field">
+      <ng-container *ngIf="showError('password')">
+        <span class="invalid-feedback failed">{{getValidationMessage('password')}}</span>
+      </ng-container>
+    </div>
+    <button type="submit" class="btn submit-btn-form">Login</button>
+  </form>
+  <div class="additional-actions">
+    <a class="nav-item nav-link-signup" routerLink="/signup" routerLinkActive="active">Forgot your Password ?</a>
+    <a class="nav-item nav-link-signup" routerLink="/signup" routerLinkActive="active">SignUp</a>
+  </div>
+</div>

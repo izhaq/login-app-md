@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand navbar-dark navigation-bar">
+  <div class="navbar-nav" *ngIf="(credentials | async)!.login; else logoutNanv">
+    <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    <a class="nav-item nav-link" routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+    <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+    <span class="hello-user">Hello {{(currentUser | async)!.firstName}} !</span>
+  </div>
+</nav>
+<ng-template #logoutNanv>
+  <div class="navbar-nav">
+  <a class="nav-item nav-link" routerLink="/login" routerLinkActive="active" >Login</a>
+  <a class="nav-item nav-link" routerLink="/signup" routerLinkActive="active">Signup</a>
+    <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+  </div>
+</ng-template>

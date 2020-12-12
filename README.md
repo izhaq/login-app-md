@@ -62,15 +62,17 @@ Usually, each feature will have its own "store slice" where each slice consist o
 
    Since all components here are "dump" they should not connect to the store but only via @Input/@Output
 
-**3.  containers**
+**3. containers**
 
-    Here are all the smart components which will have connection to the store(via facades).<br/>
-In addition, some containers can be on a separate module (aka feature module) with their own feature Store.     
+ Here are all the smart components which will have connection to the store(via facades).\
+    In addition, some containers can be on a separate module (aka feature module) with their own feature Store.     
+
 
 **4. facades**
 
-    this layer is based on the facade design pattern and it propose is to prevent container components to be depend directly on the store.\
-    This way it will be easier to upgrade/switch to a different state management library without the need to "touch" all containers as well.\
+ this layer is based on the facade design pattern and it propose is to prevent.
+ container components to be depend directly on the store.
+This way it will be easier to upgrade/switch to a different state management library without the need to "touch" all containers as well.\
     In addition it makes the containers code look much cleaner.
 
 **5. services**

@@ -64,7 +64,7 @@ Usually, each feature will have its own "store slice" where each slice consist o
 
 **3.  containers**
 
-    Here are all the smart components which will have connection to the store(via facades).\
+    Here are all the smart components which will have connection to the store(via facades).<br/>
 In addition, some containers can be on a separate module (aka feature module) with their own feature Store.     
 
 **4. facades**

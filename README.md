@@ -73,11 +73,11 @@ In addition, some containers can be on a separate module (aka feature module) wi
     This way it will be easier to upgrade/switch to a different state management library without the need to "touch" all containers as well.\
     In addition it makes the containers code look much cleaner.
 
-**5. **services**
+**5. services**
 
    Since services are singletons in angular it is a good idea to place all reusable business logic and any helpers here. for example: service with all api endpoint requests, error massages, localization, etc..
 
-**6. **Base**
+**6. Base**
 
    Will be divided to multiple folders based on needs.\
 Here we will put all base/core features, logics. usually these part will not have too much code changes.\

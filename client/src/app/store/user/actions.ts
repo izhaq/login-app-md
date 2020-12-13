@@ -18,3 +18,6 @@ export const saveUser = createAction(UsersTypesNames.SAVE_USER_PROFILE, props<{ 
 
 /** Action to set user in store */
 export const setSelectedUser = createAction(UsersTypesNames.SET_SELECTED_USER, props<{ user: UserProfile }>());
+
+/** Action on signup failed  */
+export const signupFailed = createAction(UsersTypesNames.SIGNUP_FAILED, props<{ signupResult: { email: string, id: string } }>());

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ErrorMessageService} from '../../services/error-message.service';
 import {UserFacadeService} from '../../facades/user.facade.service';
 import {User} from '../../store/user/interfaces';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
@@ -13,6 +14,7 @@ export class SignupComponent implements OnInit {
 
   signup: FormGroup;
   isSubmitted = false;
+  emailExist = { exist: false, error: '' };
   constructor(
     private fb: FormBuilder,
     private errorMsg: ErrorMessageService,
@@ -27,6 +29,8 @@ export class SignupComponent implements OnInit {
       age: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
+    this.userFacade.getSignupResults()
+      .subscribe( exist => this.emailExist = exist);
   }
 
   onSubmit({ value: user, valid }: { value: User, valid: boolean }): void {
@@ -46,3 +50,5 @@ export class SignupComponent implements OnInit {
   }
 
 }
+
+//this.router.navigate(['/'])

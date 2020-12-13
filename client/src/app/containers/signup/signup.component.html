@@ -18,8 +18,8 @@
     <div class="form-field">
       <label for="email" class="form-label">Email address</label>
       <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
-      <ng-container *ngIf="showError('email')">
-        <span class="invalid-feedback failed">{{getValidationMessage('email')}}</span>
+      <ng-container *ngIf="showError('email') || emailExist.exist">
+        <span class="invalid-feedback failed">{{getValidationMessage('email') || emailExist.error}}</span>
       </ng-container>
     </div>
     <div class="form-field">

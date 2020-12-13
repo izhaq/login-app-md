@@ -40,6 +40,8 @@ export const getUsers = async (connect: Db) => {
 }
 
 export const signup = async (connect: Db, user: Partial<User>) => {
+    const [ email ] = await connect.collection('UserProfile').find({ email: user.email }).toArray();
+    if(email){ return { email: 'Email address exist !', id: -1 } }
     const { insertedId } = await connect.collection('UserProfile').insertOne(user);
-    return insertedId;
+    return { email: user.email, id: insertedId } ;
 }

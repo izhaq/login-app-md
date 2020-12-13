@@ -14,8 +14,8 @@ export class ApiService {
     return this.http.post<UserProfile>('api/login', { email, password });
   }
 
-  signup(user: User): Observable<User> {
-    return this.http.post<User>('api/signup', { ...user });
+  signup(user: User): Observable<{id: string, email: string}> {
+    return this.http.post<{id: string, email: string}>('api/signup', { ...user });
   }
 
   getUserProfile(userId: string): Observable<UserProfile> {

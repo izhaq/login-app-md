@@ -2,15 +2,17 @@ import { Injectable } from '@angular/core';
 import {select, Store} from '@ngrx/store';
 import {Observable} from 'rxjs';
 import {AppState} from '../store/interfaces.main';
-import {User, UserProfile, Users, UsersTypesNames} from '../store/user/interfaces';
-import {selectSelectedUser, selectUser, selectUsers} from '../store/user/reducers';
+import {SignupResult, User, UserProfile, Users, UsersTypesNames} from '../store/user/interfaces';
+import {selectSelectedUser, selectSignupResult, selectUser, selectUsers} from '../store/user/reducers';
+import {map} from 'rxjs/operators';
+import {ErrorMessageService} from '../services/error-message.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserFacadeService {
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>, private errorMsg: ErrorMessageService) { }
 
   getCurrentUser(): Observable<UserProfile> {
     return this.store.pipe(select(selectUser));
@@ -34,5 +36,16 @@ export class UserFacadeService {
 
   getAllUsers(): Observable<Users> {
     return this.store.pipe(select(selectUsers));
+  }
+
+  getSignupResults(): Observable<any> {
+    return this.store.pipe(
+      select(selectSignupResult),
+      map( (res: any) => res?.data?.id === -1 ),
+      map(exist => ({
+        emailExist: exist,
+        error: exist ? this.errorMsg.getMessage({ emailExist: 'emailExist' } ) : ''
+      }) )
+    );
   }
 }

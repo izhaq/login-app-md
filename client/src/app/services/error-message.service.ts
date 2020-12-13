@@ -6,7 +6,8 @@ export type Errors = {
 
 const ErrorMessages: Errors = {
   required: 'Required field.',
-  email: 'Email is invalid.'
+  email: 'Email is invalid.',
+  emailExist: 'This Email address already used.'
 };
 
 @Injectable({
@@ -18,5 +19,9 @@ export class ErrorMessageService {
   getMessage(errorObject: any): string {
     const [key] = Object.keys(errorObject);
     return ErrorMessages[key];
+  }
+
+  getErrorFieldsKeys(errorObject: any): string[] {
+    return Object.keys(errorObject);
   }
 }

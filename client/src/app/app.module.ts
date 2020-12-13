@@ -20,6 +20,7 @@ import {SignupComponent} from './containers/signup/signup.component';
 import {DashboardComponent} from './containers/dashboard/dashboard.component';
 import {appEffects} from './store/effects.main';
 import {appReducers} from './store/reducers.main';
+import { LoadingBarModule } from './base/loading-bar/loading-bar.module';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import {appReducers} from './store/reducers.main';
     HttpClientModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    LoadingBarModule,
     StoreModule.forRoot( appReducers),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot(appEffects)

@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
-import { Actions, ofType, createEffect } from '@ngrx/effects';
-import {exhaustMap, map, mergeMap, tap} from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
+import {map, mergeMap, tap} from 'rxjs/operators';
 import {ApiService} from '../../services/api.service';
-import {getUser, getUsers, saveUser, setSelectedUser, setUser, setUsers} from './actions';
+import {getUser, getUsers, saveUser, setSelectedUser, setUser, setUsers, signupFailed} from './actions';
 import {Router} from '@angular/router';
+import {iif, of} from 'rxjs';
 
 @Injectable()
 export class UsersEffects {
@@ -12,8 +13,7 @@ export class UsersEffects {
       ofType(getUsers.type),
       mergeMap(() =>
         this.apiService.getUsers().pipe(
-          map(users => setUsers({ users }))/*,
-          catchError(error => of(AuthApiActions.loginFailure({ error })))*/
+          map(users => setUsers({ users }))
         )
       )
     )
@@ -36,10 +36,8 @@ export class UsersEffects {
       ofType(saveUser.type),
       mergeMap(({ user }) =>
         this.apiService.signup(user).pipe(
-          map(id => setUser({ user })),
-          tap(() => this.router.navigate(['/'])),
-          /*,
-          catchError(error => of(AuthApiActions.loginFailure({ error })))*/
+          tap((response: any) => response.data.id !== -1 ? this.router.navigate(['/']) : response),
+          map(response =>  signupFailed({ signupResult: { ...response } }))
         )
       )
     )

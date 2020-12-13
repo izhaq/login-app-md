@@ -2,6 +2,7 @@ export interface UsersState {
   users: Users;
   user: UserProfile;
   selectedUser: UserProfile;
+  signupResult: SignupResult;
 }
 
 export interface User {
@@ -16,6 +17,11 @@ export interface UserProfile extends User{
   password: string;
 }
 
+export interface SignupResult {
+  email: string;
+  id: string;
+}
+
 export type Users = Array<Partial<User>>;
 
 export enum UsersTypesNames {
@@ -24,5 +30,6 @@ export enum UsersTypesNames {
   GET_USER_PROFILE = '[Dashboard Page] Get User', // handled by effect
   SET_USER_PROFILE = '[Dashboard Page] Set User to Store',
   SAVE_USER_PROFILE = '[Signup Page] Save New User', // handled by effect
-  SET_SELECTED_USER = '[Dashboard Page] Set Selected user to the store'
+  SET_SELECTED_USER = '[Dashboard Page] Set Selected user to the store',
+  SIGNUP_FAILED = '[Signup Page] Save attempt failed since email exist',
 };

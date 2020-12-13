@@ -6,11 +6,10 @@
   }
   .details-container{
     display: flex;
-    align-items: end;
+    align-items: flex-end;
     .details{
       display: flex;
       padding: 20px;
-      /* flex: 1; */
       align-items: self-start;
       flex-direction: column;
       .detail-item{
